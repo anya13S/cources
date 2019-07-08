@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapped">
+        <form action="Some.Page@com" method="POST">
+            <h1>CONTACT FORM</h1>
+            <div>
+            <input type="text" name="name" id="firstName" onchange="saySmth" placeholder="Enter first name">
+           <label>First name*</label> </div>
+           <div>       
+            <input type="text" name="name" id="lastName" onchange="saySmth" placeholder="Enter last name">
+            <label>Last name*</label></div>
+            <div>
+            <input type="email" name="email" onchange="saySmth" id="email" value="">
+            <label>Email*</label></div>
+            <div class="message">
+            <textarea name="text" style="float: right"></textarea>
+            <label>Message*</label>
+            <input type="button" id="confirm" value="Confirm">
+        </div>
+        </form>
+    </div>
+    <script>
+    var confirmButtom = document.getElementById('confirm');
+confirmButtom.addEventListener('click', saySmth);
+
+function saySmth(event) {
+    console.log(event)
+    var firstName = document.getElementById('firstName').value;
+    var lastName = document.getElementById('lastName').value;
+    var email=document.getElementById('email').value;
+   
+    if (firstName.length < 5, alert("First name is too short")){
+        document.getElementById('firstName').value = '';
+        return;
+    // } if (firstName.length > 5){
+    //     document.getElementById('firstName').value = '';
+    //     return 1;
+    }
+    // } else (firstName.length > 5){
+    //     document.getElementById('firstName').value = '';
+    //     return = 1;
+    // }
+    if (lastName < 5, alert("Last name is too short")){
+        document.getElementById('lastName').value = '';
+        return;
+    } 
+    if (email.length < 5, alert("Email is too short")){
+        document.getElementById('email').value = '';
+        return;
+    } 
+     if (firstName.length > 5 || lastName.length > 5 || email.length > 5){
+    alert("success");
+     } 
+
+    var user = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email
+    };
+    console.log(user);
+}
+    </script>
+</body>
+</html>
